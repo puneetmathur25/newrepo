@@ -117,17 +117,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${configProfileInstance?.cpMDPagesDiagnosisMapping}">
-				<li class="fieldcontain">
-					<span id="cpMDPagesDiagnosisMapping-label" class="property-label"><g:message code="configProfile.cpMDPagesDiagnosisMapping.label" default="Cp MDP ages Diagnosis Mapping" /></span>
-					
-						<g:each in="${configProfileInstance.cpMDPagesDiagnosisMapping}" var="c">
-						<span class="property-value" aria-labelledby="cpMDPagesDiagnosisMapping-label"><g:link controller="configProfileMDPagesDiagnosisMapping" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${configProfileInstance?.gettingBetterPictograph}">
 				<li class="fieldcontain">
 					<span id="gettingBetterPictograph-label" class="property-label"><g:message code="configProfile.gettingBetterPictograph.label" default="Getting Better Pictograph" /></span>

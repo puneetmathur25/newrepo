@@ -4,6 +4,7 @@ import edu.osumc.bmi.ird.ready.ConfigProfileMDPagesDiagnosisMapping
 import edu.osumc.bmi.ird.ready.Diagnosis
 import edu.osumc.bmi.ird.ready.Institution
 import edu.osumc.bmi.ird.ready.Instrument
+import edu.osumc.bmi.ird.ready.InstrumentType
 import edu.osumc.bmi.ird.ready.LikertScale
 import edu.osumc.bmi.ird.ready.MDPage
 import edu.osumc.bmi.ird.ready.NumericRatingScale
@@ -37,7 +38,9 @@ class BootStrap {
 		initQuestions_Instruments()
 		init_MDPages()
 		init_Diagnosis_Instruments()
-		init_ConfigProfileInstrumentDiagnosisMapping()
+//		init_ConfigProfileInstrumentDiagnosisMapping()
+		
+		printTest()
 		 
 	}
     def destroy = {
@@ -292,7 +295,7 @@ class BootStrap {
 				
 				 
 			//Instrument : MDHAQ
-			def mdhaq = new Instrument(name: 'MDHAQ', defaultQuestionText: null)
+			def mdhaq = new Instrument(name: 'MDHAQ', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(mdhaq_Q1)
 							.addToQuestions(mdhaq_Q2)
 							.addToQuestions(mdhaq_Q3)
@@ -316,7 +319,7 @@ class BootStrap {
 			
 			 
 			//Instrument : MDHAQ-Other
-			def mdhaq_other = new Instrument(name: 'MDHAQ-Other', defaultQuestionText: null)
+			def mdhaq_other = new Instrument(name: 'MDHAQ-Other', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(mdhaq_other_Q1)
 							.addToQuestions(mdhaq_other_Q2).save(flush: true, failOnError: true)
 		}
@@ -330,21 +333,21 @@ class BootStrap {
 				responseType: painScale).save(flush: true, failOnError: true)
 			
 			//Instrument : Pain-RA
-			def pain_ra = new Instrument(name: 'Pain-RA', defaultQuestionText: null)
+			def pain_ra = new Instrument(name: 'Pain-RA', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(pain_ra_question).save(flush: true, failOnError: true)
 			
 			def pain_arthritis_question = new Question(question: pain_ques_starter + 'arthritis over the past week',
 				responseType: painScale).save(flush: true, failOnError: true)
 				
 			//Instrument : Pain-Arthritis
-			def pain_arthritis = new Instrument(name: 'Pain-Arthritis', defaultQuestionText: null)
+			def pain_arthritis = new Instrument(name: 'Pain-Arthritis', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(pain_arthritis_question).save(flush: true, failOnError: true)
 							
 			def pain_other_question = new Question(question: pain_ques_starter + 'condition over the past week',
 				responseType: painScale).save(flush: true, failOnError: true)
 				
 			//Instrument : Pain-Other
-			def pain_other = new Instrument(name: 'Pain-Other', defaultQuestionText: null)
+			def pain_other = new Instrument(name: 'Pain-Other', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(pain_other_question).save(flush: true, failOnError: true)
 							
 		}
@@ -357,7 +360,7 @@ class BootStrap {
 				responseType: problemScale).save(flush: true, failOnError: true)
 			
 			//Instrument : Fatigue
-			def fatigue = new Instrument(name: 'Fatigue', defaultQuestionText: null)
+			def fatigue = new Instrument(name: 'Fatigue', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(fatigue_question).save(flush: true, failOnError: true)
 			
 		}
@@ -390,7 +393,7 @@ class BootStrap {
 		}
 		
 		//Instrument : Flare
-		def flare = new Instrument(name: 'Flare', defaultQuestionText: null)
+		def flare = new Instrument(name: 'Flare', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 						.addToQuestions(flare_Q1)
 						.addToQuestions(flare_Q2)
 						.addToQuestions(flare_Q3).save(flush: true, failOnError: true)
@@ -404,21 +407,21 @@ class BootStrap {
 				responseType: ptGlobalScale).save(flush: true, failOnError: true)
 				
 			//Instrument : PtGlobal-RA
-			def ptGlobal_ra = new Instrument(name: 'PtGlobal-RA', defaultQuestionText: null)
+			def ptGlobal_ra = new Instrument(name: 'PtGlobal-RA', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(ptGlobal_ra_question).save(flush: true, failOnError: true)
 				
 			def ptGlobal_arthritis_question = new Question(question: 'Considering all the ways arthritis affects you, indicate on the scale how well you are doing',
 				responseType: ptGlobalScale).save(flush: true, failOnError: true)
 				
 			//Instrument : PtGlobal-Arthritis
-			def ptGlobal_arthritis = new Instrument(name: 'PtGlobal-Arthritis', defaultQuestionText: null)
+			def ptGlobal_arthritis = new Instrument(name: 'PtGlobal-Arthritis', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(ptGlobal_arthritis_question).save(flush: true, failOnError: true)
 							
 			def ptGlobal_other_question = new Question(question: 'Considering all the ways your condition affects you, indicate on the scale how well you are doing',
 				responseType: ptGlobalScale).save(flush: true, failOnError: true)
 				
 			//Instrument : PtGlobal-Other
-			def ptGlobal_other = new Instrument(name: 'PtGlobal-Other', defaultQuestionText: null)
+			def ptGlobal_other = new Instrument(name: 'PtGlobal-Other', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(ptGlobal_other_question).save(flush: true, failOnError: true)
 		}
 		
@@ -433,21 +436,21 @@ class BootStrap {
 				responseType: booleanAgreementScale).save(flush: true, failOnError: true)
 				
 			//Instrument : Pass-RA
-			def pass_ra = new Instrument(name: 'Pass-RA', defaultQuestionText: null)
+			def pass_ra = new Instrument(name: 'Pass-RA', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(pass_ra_question).save(flush: true, failOnError: true)
 				
 			def pass_arthritis_question = new Question(question: 'Considering all the different ways arthritis is affecting you, if you would stay in this state for the next months, do you consider that your current state is satisfactory',
 				responseType: booleanAgreementScale).save(flush: true, failOnError: true)
 				
 			//Instrument : Pass-Arthritis
-			def pass_arthritis = new Instrument(name: 'Pass-Arthritis', defaultQuestionText: null)
+			def pass_arthritis = new Instrument(name: 'Pass-Arthritis', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(pass_arthritis_question).save(flush: true, failOnError: true)
 							
 			def pass_other_question = new Question(question: 'Considering all the different ways your health condition is affecting you, if you would stay in this state for the next months, do you consider that your current state is satisfactory',
 				responseType: booleanAgreementScale).save(flush: true, failOnError: true)
 				
 			//Instrument : Pass-Other
-			def pass_other = new Instrument(name: 'Pass-Other', defaultQuestionText: null)
+			def pass_other = new Instrument(name: 'Pass-Other', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(pass_other_question).save(flush: true, failOnError: true)
 		}
 		
@@ -463,21 +466,21 @@ class BootStrap {
 				responseType: improveScale).save(flush: true, failOnError: true)
 				
 			//Instrument : Improve-RA
-			def improve_ra = new Instrument(name: 'Improve-RA', defaultQuestionText: null)
+			def improve_ra = new Instrument(name: 'Improve-RA', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(improve_ra_question).save(flush: true, failOnError: true)
 				
 			def improve_arthritis_question = new Question(question: 'Since your last visit, is your arthritis',
 				responseType: improveScale).save(flush: true, failOnError: true)
 				
 			//Instrument : Improve-Arthritis
-			def improve_arthritis = new Instrument(name: 'Improve-Arthritis', defaultQuestionText: null)
+			def improve_arthritis = new Instrument(name: 'Improve-Arthritis', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(improve_arthritis_question).save(flush: true, failOnError: true)
 							
 			def improve_other_question = new Question(question: 'Since your last visit, is your health condition',
 				responseType: improveScale).save(flush: true, failOnError: true)
 				
 			//Instrument : Improve-Other
-			def improve_other = new Instrument(name: 'Improve-Other', defaultQuestionText: null)
+			def improve_other = new Instrument(name: 'Improve-Other', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(improve_other_question).save(flush: true, failOnError: true)
 		}
 		
@@ -503,7 +506,7 @@ class BootStrap {
 			
 				 
 			//Instrument : EQ5D
-			def eq5d = new Instrument(name: 'EQ5D', defaultQuestionText: 'Please indicate which statements best describe your own health status today')
+			def eq5d = new Instrument(name: 'EQ5D', instrumentType: InstrumentType.PATIENT, defaultQuestionText: 'Please indicate which statements best describe your own health status today')
 							.addToQuestions(eq5d_Q1)
 							.addToQuestions(eq5d_Q2)
 							.addToQuestions(eq5d_Q3)
@@ -515,13 +518,13 @@ class BootStrap {
 	
 	def init_RADAI() {
 		//Instrument : SF12
-		def radai = new Instrument(name: 'RADAI', defaultQuestionText: null)
+		def radai = new Instrument(name: 'RADAI', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 						.save(flush: true, failOnError: true)
 	}
 	
 	def init_SF12() {
 			//Instrument : SF12
-			def sf12 = new Instrument(name: 'SF12', defaultQuestionText: 'How does your health now limit you in perfroming the following activities')
+			def sf12 = new Instrument(name: 'SF12', instrumentType: InstrumentType.PATIENT, defaultQuestionText: 'How does your health now limit you in perfroming the following activities')
 							.save(flush: true, failOnError: true)
 	}
 		
@@ -581,7 +584,7 @@ class BootStrap {
 				responseType: satisfactionScale).save(flush: true, failOnError: true)
 			
 			//Instrument : Pt Attitudes
-			def ptAttitudes = new Instrument(name: 'Pt Attitudes', defaultQuestionText: null)
+			def ptAttitudes = new Instrument(name: 'Pt Attitudes', instrumentType: InstrumentType.PATIENT, defaultQuestionText: null)
 							.addToQuestions(ptAttitudes_Q1)
 							.addToQuestions(ptAttitudes_Q2)
 							.addToQuestions(ptAttitudes_Q3)
@@ -592,11 +595,11 @@ class BootStrap {
 	
 	def init_MDPages(){
 		
-		def MDHomunculus = new MDPage(name: 'MD Homunculus').save(flush: true, failOnError: true)
-		def MDPROsValid = new MDPage(name: 'MD PROs Valid').save(flush: true, failOnError: true)
-		def MDLabs = new MDPage(name: 'MD Labs').save(flush: true, failOnError: true)
-		def MDGlobal = new MDPage(name: 'MD Global').save(flush: true, failOnError: true)
-		def MDGloRxStatus = new MDPage(name: 'Rx Status').save(flush: true, failOnError: true)
+		def MDHomunculus = new Instrument(name: 'MD Homunculus', instrumentType: InstrumentType.PHYSICIAN).save(flush: true, failOnError: true)
+		def MDPROsValid = new Instrument(name: 'MD PROs Valid', instrumentType: InstrumentType.PHYSICIAN).save(flush: true, failOnError: true)
+		def MDLabs = new Instrument(name: 'MD Labs', instrumentType: InstrumentType.PHYSICIAN).save(flush: true, failOnError: true)
+		def MDGlobal = new Instrument(name: 'MD Global', instrumentType: InstrumentType.PHYSICIAN).save(flush: true, failOnError: true)
+		def MDGloRxStatus = new Instrument(name: 'Rx Status', instrumentType: InstrumentType.PHYSICIAN).save(flush: true, failOnError: true)
 	}
 	
 	def init_Diagnosis_Instruments() {
@@ -627,10 +630,10 @@ class BootStrap {
 		def ptAttitudes = Instrument.findByName('Pt Attitudes')
 		
 		
-		def MDHomunculus = MDPage.findByName('MD Homunculus')
-		def MDPROsValid = MDPage.findByName('MD PROs Valid')
-		def MDLabs = MDPage.findByName('MD Labs')
-		def MDGlobal = MDPage.findByName('MD Global')
+//		def MDHomunculus = MDPage.findByName('MD Homunculus')
+//		def MDPROsValid = MDPage.findByName('MD PROs Valid')
+//		def MDLabs = MDPage.findByName('MD Labs')
+//		def MDGlobal = MDPage.findByName('MD Global')
 		
 		def raDiagnosis = new Diagnosis(name: 'Rheumatoid Arthritis' )
 								.addToInstruments(mdhaq)
@@ -644,10 +647,10 @@ class BootStrap {
 								.addToInstruments(radai)
 								.addToInstruments(sf12)
 								.addToInstruments(ptAttitudes)
-								.addToMdPages(MDHomunculus)
-								.addToMdPages(MDPROsValid)
-								.addToMdPages(MDLabs)
-								.addToMdPages(MDGlobal)
+//								.addToMdPages(MDHomunculus)
+//								.addToMdPages(MDPROsValid)
+//								.addToMdPages(MDLabs)
+//								.addToMdPages(MDGlobal)
 								.save(flush: true, failOnError: true)
 								
 								
@@ -662,10 +665,10 @@ class BootStrap {
 								.addToInstruments(eq5d)
 								.addToInstruments(radai)
 								.addToInstruments(sf12)
-								.addToMdPages(MDHomunculus)
-								.addToMdPages(MDPROsValid)
-								.addToMdPages(MDLabs)
-								.addToMdPages(MDGlobal)
+//								.addToMdPages(MDHomunculus)
+//								.addToMdPages(MDPROsValid)
+//								.addToMdPages(MDLabs)
+//								.addToMdPages(MDGlobal)
 								.save(flush: true, failOnError: true)
 		//Psoriatic arthritis
 		def psoriaticArthritisDiagnosis = new Diagnosis(name: 'Psoriatic Arthritis')
@@ -850,11 +853,11 @@ class BootStrap {
 		def ptAttitudes = Instrument.findByName('Pt Attitudes')
 		
 		
-		def MDHomunculus = MDPage.findByName('MD Homunculus')
-		def MDPROsValid = MDPage.findByName('MD PROs Valid')
-		def MDLabs = MDPage.findByName('MD Labs')
-		def MDGlobal = MDPage.findByName('MD Global')
-		def RxStatus = MDPage.findByName('Rx Status')
+//		def MDHomunculus = MDPage.findByName('MD Homunculus')
+//		def MDPROsValid = MDPage.findByName('MD PROs Valid')
+//		def MDLabs = MDPage.findByName('MD Labs')
+//		def MDGlobal = MDPage.findByName('MD Global')
+//		def RxStatus = MDPage.findByName('Rx Status')
 		
 		//Diagnosis
 		def raDiagnosis = Diagnosis.findByName('Rheumatoid Arthritis')
@@ -866,6 +869,10 @@ class BootStrap {
 		def cpMDPageDiag_1 = new ConfigProfileMDPagesDiagnosisMapping(configProfile: cp1, mdPage: RxStatus,
 			diagnosis: raDiagnosis, mdPageDiagnosisEnabled: true).save(flush: true, failOnError: true)
 								
+	}
+	
+	def printTest() {
+		
 	}
 	
 

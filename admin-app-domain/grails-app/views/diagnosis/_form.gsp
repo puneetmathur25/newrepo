@@ -20,21 +20,3 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: diagnosisInstance, field: 'mdPages', 'error')} ">
-	<label for="mdPages">
-		<g:message code="diagnosis.mdPages.label" default="Md Pages" />
-		
-	</label>
-	<g:select name="mdPages" from="${edu.osumc.bmi.ird.ready.MDPage.list()}" multiple="multiple" optionKey="id" size="5" value="${diagnosisInstance?.mdPages*.id}" class="many-to-many"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: diagnosisInstance, field: 'rxStatus', 'error')} ">
-	<label for="rxStatus">
-		<g:message code="diagnosis.rxStatus.label" default="Rx Status" />
-		
-	</label>
-	<g:checkBox name="rxStatus" value="${diagnosisInstance?.rxStatus}" />
-
-</div>
-

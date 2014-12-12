@@ -26,6 +26,8 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'instrument.name.label', default: 'Name')}" />
 					
+						<g:sortableColumn property="instrumentType" title="${message(code: 'instrument.instrumentType.label', default: 'Instrument Type')}" />
+					
 						<g:sortableColumn property="defaultQuestionText" title="${message(code: 'instrument.defaultQuestionText.label', default: 'Default Question Text')}" />
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'instrument.dateCreated.label', default: 'Date Created')}" />
@@ -39,6 +41,8 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${instrumentInstance.id}">${fieldValue(bean: instrumentInstance, field: "name")}</g:link></td>
+					
+						<td>${fieldValue(bean: instrumentInstance, field: "instrumentType")}</td>
 					
 						<td>${fieldValue(bean: instrumentInstance, field: "defaultQuestionText")}</td>
 					

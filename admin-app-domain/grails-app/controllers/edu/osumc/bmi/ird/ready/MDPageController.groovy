@@ -12,80 +12,80 @@ class MDPageController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond MDPages.list(params), model:[MDPagesInstanceCount: MDPages.count()]
+        respond MDPage.list(params), model:[MDPageInstanceCount: MDPage.count()]
     }
 
-    def show(MDPage MDPagesInstance) {
-        respond MDPagesInstance
+    def show(MDPage MDPageInstance) {
+        respond MDPageInstance
     }
 
     def create() {
-        respond new MDPages(params)
+        respond new MDPage(params)
     }
 
     @Transactional
-    def save(MDPage MDPagesInstance) {
-        if (MDPagesInstance == null) {
+    def save(MDPage MDPageInstance) {
+        if (MDPageInstance == null) {
             notFound()
             return
         }
 
-        if (MDPagesInstance.hasErrors()) {
-            respond MDPagesInstance.errors, view:'create'
+        if (MDPageInstance.hasErrors()) {
+            respond MDPageInstance.errors, view:'create'
             return
         }
 
-        MDPagesInstance.save flush:true
+        MDPageInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'MDPages.label', default: 'MDPages'), MDPagesInstance.id])
-                redirect MDPagesInstance
+                flash.message = message(code: 'default.created.message', args: [message(code: 'MDPage.label', default: 'MDPage'), MDPageInstance.id])
+                redirect MDPageInstance
             }
-            '*' { respond MDPagesInstance, [status: CREATED] }
+            '*' { respond MDPageInstance, [status: CREATED] }
         }
     }
 
-    def edit(MDPage MDPagesInstance) {
-        respond MDPagesInstance
+    def edit(MDPage MDPageInstance) {
+        respond MDPageInstance
     }
 
     @Transactional
-    def update(MDPage MDPagesInstance) {
-        if (MDPagesInstance == null) {
+    def update(MDPage MDPageInstance) {
+        if (MDPageInstance == null) {
             notFound()
             return
         }
 
-        if (MDPagesInstance.hasErrors()) {
-            respond MDPagesInstance.errors, view:'edit'
+        if (MDPageInstance.hasErrors()) {
+            respond MDPageInstance.errors, view:'edit'
             return
         }
 
-        MDPagesInstance.save flush:true
+        MDPageInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'MDPages.label', default: 'MDPages'), MDPagesInstance.id])
-                redirect MDPagesInstance
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'MDPage.label', default: 'MDPage'), MDPageInstance.id])
+                redirect MDPageInstance
             }
-            '*'{ respond MDPagesInstance, [status: OK] }
+            '*'{ respond MDPageInstance, [status: OK] }
         }
     }
 
     @Transactional
-    def delete(MDPage MDPagesInstance) {
+    def delete(MDPage MDPageInstance) {
 
-        if (MDPagesInstance == null) {
+        if (MDPageInstance == null) {
             notFound()
             return
         }
 
-        MDPagesInstance.delete flush:true
+        MDPageInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'MDPages.label', default: 'MDPages'), MDPagesInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'MDPage.label', default: 'MDPage'), MDPageInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +95,7 @@ class MDPageController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'MDPages.label', default: 'MDPages'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'MDPage.label', default: 'MDPage'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

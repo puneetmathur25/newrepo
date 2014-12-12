@@ -61,26 +61,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${diagnosisInstance?.mdPages}">
-				<li class="fieldcontain">
-					<span id="mdPages-label" class="property-label"><g:message code="diagnosis.mdPages.label" default="Md Pages" /></span>
-					
-						<g:each in="${diagnosisInstance.mdPages}" var="m">
-						<span class="property-value" aria-labelledby="mdPages-label"><g:link controller="MDPage" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${diagnosisInstance?.rxStatus}">
-				<li class="fieldcontain">
-					<span id="rxStatus-label" class="property-label"><g:message code="diagnosis.rxStatus.label" default="Rx Status" /></span>
-					
-						<span class="property-value" aria-labelledby="rxStatus-label"><g:formatBoolean boolean="${diagnosisInstance?.rxStatus}" /></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form url="[resource:diagnosisInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

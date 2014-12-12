@@ -11,6 +11,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: instrumentInstance, field: 'instrumentType', 'error')} ">
+	<label for="instrumentType">
+		<g:message code="instrument.instrumentType.label" default="Instrument Type" />
+		
+	</label>
+	<g:select name="instrumentType" from="${edu.osumc.bmi.ird.ready.InstrumentType?.values()}" keys="${edu.osumc.bmi.ird.ready.InstrumentType.values()*.name()}" value="${instrumentInstance?.instrumentType?.name()}"  noSelection="['': '']"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: instrumentInstance, field: 'defaultQuestionText', 'error')} ">
 	<label for="defaultQuestionText">
 		<g:message code="instrument.defaultQuestionText.label" default="Default Question Text" />

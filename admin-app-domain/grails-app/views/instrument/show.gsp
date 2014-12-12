@@ -32,6 +32,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${instrumentInstance?.instrumentType}">
+				<li class="fieldcontain">
+					<span id="instrumentType-label" class="property-label"><g:message code="instrument.instrumentType.label" default="Instrument Type" /></span>
+					
+						<span class="property-value" aria-labelledby="instrumentType-label"><g:fieldValue bean="${instrumentInstance}" field="instrumentType"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${instrumentInstance?.defaultQuestionText}">
 				<li class="fieldcontain">
 					<span id="defaultQuestionText-label" class="property-label"><g:message code="instrument.defaultQuestionText.label" default="Default Question Text" /></span>

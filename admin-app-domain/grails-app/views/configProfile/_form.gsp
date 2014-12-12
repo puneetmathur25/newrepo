@@ -92,24 +92,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: configProfileInstance, field: 'cpMDPagesDiagnosisMapping', 'error')} ">
-	<label for="cpMDPagesDiagnosisMapping">
-		<g:message code="configProfile.cpMDPagesDiagnosisMapping.label" default="Cp MDP ages Diagnosis Mapping" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${configProfileInstance?.cpMDPagesDiagnosisMapping?}" var="c">
-    <li><g:link controller="configProfileMDPagesDiagnosisMapping" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="configProfileMDPagesDiagnosisMapping" action="create" params="['configProfile.id': configProfileInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'configProfileMDPagesDiagnosisMapping.label', default: 'ConfigProfileMDPagesDiagnosisMapping')])}</g:link>
-</li>
-</ul>
-
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: configProfileInstance, field: 'gettingBetterPictograph', 'error')} ">
 	<label for="gettingBetterPictograph">
 		<g:message code="configProfile.gettingBetterPictograph.label" default="Getting Better Pictograph" />

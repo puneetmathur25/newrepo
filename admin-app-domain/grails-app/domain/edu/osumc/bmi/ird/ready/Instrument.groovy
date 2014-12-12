@@ -6,6 +6,7 @@ class Instrument {
 	
 	String name
 	String defaultQuestionText
+	InstrumentType instrumentType
 	static belongsTo = Diagnosis
 	static hasMany = [questions : Question, diagnoses : Diagnosis]
 	
@@ -15,6 +16,7 @@ class Instrument {
     static constraints = {
 		//attributes
 		name blank: false , nullable: false, size: 2..128
+		instrumentType nullable:true
 		defaultQuestionText nullable: true
 		
 		dateCreated nullable:true

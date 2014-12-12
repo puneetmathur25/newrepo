@@ -30,8 +30,6 @@
 					
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'diagnosis.lastUpdated.label', default: 'Last Updated')}" />
 					
-						<g:sortableColumn property="rxStatus" title="${message(code: 'diagnosis.rxStatus.label', default: 'Rx Status')}" />
-					
 					</tr>
 				</thead>
 				<tbody>
@@ -43,8 +41,6 @@
 						<td><g:formatDate date="${diagnosisInstance.dateCreated}" /></td>
 					
 						<td><g:formatDate date="${diagnosisInstance.lastUpdated}" /></td>
-					
-						<td><g:formatBoolean boolean="${diagnosisInstance.rxStatus}" /></td>
 					
 					</tr>
 				</g:each>

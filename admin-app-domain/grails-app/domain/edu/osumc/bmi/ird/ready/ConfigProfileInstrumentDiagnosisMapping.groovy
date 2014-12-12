@@ -17,9 +17,9 @@ class ConfigProfileInstrumentDiagnosisMapping {
 		lastUpdated nullable:true
     }
 	
-	String toString() {
-		return instrument.name + " : " + diagnosis.name + " : " + instrumentDiagnosisEnabled
-	}
+//	String toString() {
+//		return instrument.name + " : " + diagnosis.name + " : " + instrumentDiagnosisEnabled
+//	}
 	
 	
 }

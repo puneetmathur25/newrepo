@@ -22,7 +22,7 @@ class ConfigProfile {
 	Date lastUpdated
 	
 	static hasMany = [configProfileSiteMappings : SiteConfigProfileMapping, 
-						cpInstDiagMapping : ConfigProfileInstrumentDiagnosisMapping, cpMDPagesDiagnosisMapping : ConfigProfileMDPagesDiagnosisMapping]
+						cpInstDiagMapping : ConfigProfileInstrumentDiagnosisMapping]
 	
     static constraints = {
 		//attributes
@@ -39,7 +39,6 @@ class ConfigProfile {
 		//association
 		configProfileSiteMappings nullable: true
 		cpInstDiagMapping nullable: true
-		cpMDPagesDiagnosisMapping nullable: true
 		gettingBetterPictograph nullable: true
 		sideEffectPictograph nullable: true
 		seriousSideEffectPictograph nullable: true
